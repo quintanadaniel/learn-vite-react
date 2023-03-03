@@ -5,6 +5,10 @@ const FollowMouse = () => {
   const [enabled, setEnabled] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
+  // [] -> solo se ejecuta una vez cuando se monta el componenete
+  // [enabled,...] -> se ejecuta cuando cambia una dependencia y se monta el componenete
+  // undefined -> se ejecuta cada vez que se renderiza el componente
+
   // pointer move
   useEffect(() => {
     console.log("efecto", { enabled });
@@ -16,7 +20,7 @@ const FollowMouse = () => {
     if (enabled) {
       window.addEventListener("pointermove", handleMove);
     }
-    // limpiamos el el evento montado, y desmontamos un componente, podmos hacer un return en el useEffect
+    // limpiamos el evento montado, y desmontamos un componente, podmos hacer un return en el useEffect dentro de la funcion en el return
     return () => {
       window.removeEventListener("pointermove", handleMove);
     };
