@@ -46,7 +46,7 @@ function App() {
   const debounceGetMovies = useCallback(
     debounce((search) => {
       getMovies({ search });
-    }, 300) // 300 milisegundos es una medida promedio e busqueda
+    }, 500) // 500 milisegundos es una medida promedio e busqueda
     ,[getMovies]
   );
 
